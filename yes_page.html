@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ich wusste, dass du Ja sagst!</title>
+    <link rel="stylesheet" href="./yes_style.css">
+</head>
+<body>
+<div class="confetti-container"></div>
+
+<div class="container">
+    <h1 class="header_text">Ich wusste, dass du Ja sagst! ❤️</h1>
+    <h2>Ich liebe dich so sehr mein Schatz!!️</h2>
+
+
+    <div class="gallery-container">
+        <div class="gallery-slide active">
+            <img src="1.jpg" alt="Unser Foto 1">
+        </div>
+        <div class="gallery-slide">
+            <img src="2.jpg" alt="Unser Foto 2">
+        </div>
+        <div class="gallery-slide">
+            <img src="3.jpg" alt="Unser Foto 3">
+        </div>
+        <div class="gallery-slide">
+            <img src="4.jpg" alt="Unser Foto 4">
+        </div>
+        <div class="gallery-slide">
+            <img src="5.jpg" alt="Unser Foto 5">
+        </div>
+        <div class="gallery-slide">
+            <img src="6.jpg" alt="Unser Foto 6">
+        </div>
+
+        <button class="gallery-button prev" onclick="changeSlide(-1)">❮</button>
+        <button class="gallery-button next" onclick="changeSlide(1)">❯</button>
+
+        <div class="gallery-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<script src="yes_script.js"></script>
+</body>
+</html>
