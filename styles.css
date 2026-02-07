@@ -1,28 +1,40 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
+  padding: 20px;
   background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%);
   font-family: "Nunito", sans-serif;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .container {
   text-align: center;
   z-index: 10;
   position: relative;
+  max-width: 90%;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: clamp(1.5em, 5vw, 2.5em);
   color: #d32f2f;
   animation: pulse 2s ease-in-out infinite;
   text-shadow: 2px 2px 4px rgba(211, 47, 47, 0.3);
+  margin: 20px 0;
+  line-height: 1.3;
 }
 
 @keyframes pulse {
@@ -32,12 +44,15 @@ h1 {
 
 .buttons {
   margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .yes-button {
-  font-size: 1.5em;
-  padding: 10px 20px;
-  margin-right: 10px;
+  font-size: clamp(1.2em, 4vw, 1.5em);
+  padding: 15px 30px;
   background-color: #fa0561;
   color: white;
   border: none;
@@ -45,6 +60,7 @@ h1 {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(250, 5, 97, 0.4);
+  min-width: 100px;
 }
 
 .yes-button:hover {
@@ -54,25 +70,27 @@ h1 {
 }
 
 .no-button {
-  font-size: 1.5em;
-  padding: 10px 20px;
+  font-size: clamp(1.2em, 4vw, 1.5em);
+  padding: 15px 30px;
   background-color: #d3d3d3;
   color: black;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 100px;
 }
 
 .gif_container {
   position: relative;
+  margin: 20px auto;
 }
 
 .gif_container img {
-  width: 300px;
+  width: 100%;
+  max-width: 250px;
   height: auto;
   border-radius: 10px;
-  margin-top: 20px;
   animation: float 3s ease-in-out infinite;
 }
 
@@ -89,6 +107,8 @@ h1 {
   overflow: hidden;
   z-index: 1;
   pointer-events: none;
+  top: 0;
+  left: 0;
 }
 
 .heart {
@@ -136,3 +156,66 @@ h1 {
 .heart:nth-child(4) { left: 60%; animation-duration: 9s; animation-delay: 1s; }
 .heart:nth-child(5) { left: 75%; animation-duration: 11s; animation-delay: 3s; }
 .heart:nth-child(6) { left: 90%; animation-duration: 13s; animation-delay: 5s; }
+
+/* Mobile Optimierungen */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin: 15px 0;
+  }
+
+  .gif_container img {
+    max-width: 250px;
+  }
+
+  .buttons {
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .yes-button,
+  .no-button {
+    font-size: 1.2em;
+    padding: 12px 25px;
+    min-width: 80px;
+  }
+
+  .heart {
+    width: 15px;
+    height: 15px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .gif_container img {
+    max-width: 200px;
+  }
+
+  .yes-button,
+  .no-button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
