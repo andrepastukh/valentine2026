@@ -69,6 +69,82 @@ function resetAutoPlay() {
     }, 3000);
 }
 
+// ===== LIGHTBOX FUNKTIONALITÄT =====
+function openLightbox(imageSrc) {
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    lightboxImg.src = imageSrc;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Verhindert Scrollen im Hintergrund
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('lightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Lightbox mit ESC-Taste schließen
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// Lightbox beim Klick auf den Hintergrund schließen
+document.getElementById('lightbox').addEventListener('click', (e) => {
+    if (e.target.id === 'lightbox') {
+        closeLightbox();
+    }
+});
+
+// Füge Click-Handler zu allen Bildern hinzu
+window.addEventListener('load', () => {
+    const galleryImages = document.querySelectorAll('.gallery-slide img');
+    galleryImages.forEach(img => {
+        img.style.cursor = 'pointer';
+        img.addEventListener('click', () => {
+            openLightbox(img.src);
+        });
+    });
+});
+
+// ===== SWIPE FUNKTIONALITÄT FÜR MOBILE =====
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+
+const galleryContainer = document.querySelector('.gallery-container');
+
+galleryContainer.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+}, false);
+
+galleryContainer.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipe();
+}, false);
+
+function handleSwipe() {
+    const swipeThreshold = 50; // Mindestdistanz für einen Swipe
+    const horizontalDiff = touchEndX - touchStartX;
+    const verticalDiff = Math.abs(touchEndY - touchStartY);
+
+    // Nur horizontale Swipes erkennen (vertikale Bewegung sollte minimal sein)
+    if (verticalDiff < 100) {
+        if (horizontalDiff > swipeThreshold) {
+            // Swipe nach rechts = vorheriges Bild
+            changeSlide(-1);
+        } else if (horizontalDiff < -swipeThreshold) {
+            // Swipe nach links = nächstes Bild
+            changeSlide(1);
+        }
+    }
+}
+
 // Konfetti-Animation
 function createConfetti() {
     const container = document.querySelector('.confetti-container');

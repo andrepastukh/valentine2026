@@ -13,6 +13,17 @@
     <h1 class="header_text">Ich wusste, dass du Ja sagst! ❤️</h1>
     <h2>Ich liebe dich so sehr mein Schatz!!️</h2>
 
+    <div class="gift-icon-container">
+        <a href="wheel.html" class="gift-link">
+            <div class="gift-box">
+                <div class="gift-box-lid">
+                    <div class="bow"></div>
+                </div>
+                <div class="gift-box-body"></div>
+            </div>
+            <p class="gift-text">🎁 Dein Geschenk! 🎁</p>
+        </a>
+    </div>
 
     <div class="gallery-container">
         <div class="gallery-slide active">
@@ -33,6 +44,28 @@
         <div class="gallery-slide">
             <img src="6.jpg" alt="Unser Foto 6">
         </div>
+        <div class="gallery-slide">
+            <img src="7.jpg" alt="Unser Foto 7">
+        </div>
+        <div class="gallery-slide">
+            <img src="8.jpg" alt="Unser Foto 8">
+        </div>
+        <div class="gallery-slide">
+            <img src="9.jpg" alt="Unser Foto 9">
+        </div>
+        <div class="gallery-slide">
+            <img src="10.jpg" alt="Unser Foto 10">
+        </div>
+        <div class="gallery-slide">
+            <img src="11.jpg" alt="Unser Foto 11">
+        </div>
+        <div class="gallery-slide">
+            <img src="12.jpg" alt="Unser Foto 12">
+        </div>
+        <div class="gallery-slide">
+            <img src="13.jpg" alt="Unser Foto 13">
+        </div>
+
 
         <button class="gallery-button prev" onclick="changeSlide(-1)">❮</button>
         <button class="gallery-button next" onclick="changeSlide(1)">❯</button>
@@ -44,12 +77,25 @@
             <span class="dot" onclick="currentSlide(4)"></span>
             <span class="dot" onclick="currentSlide(5)"></span>
             <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+            <span class="dot" onclick="currentSlide(9)"></span>
+            <span class="dot" onclick="currentSlide(10)"></span>
+            <span class="dot" onclick="currentSlide(11)"></span>
+            <span class="dot" onclick="currentSlide(12)"></span>
+            <span class="dot" onclick="currentSlide(13)"></span>
+            <span class="dot" onclick="currentSlide(14)"></span>
         </div>
     </div>
 
     <audio id="backgroundMusic" loop>
         <source src="song.mp3" type="audio/mpeg">
     </audio>
+</div>
+
+<div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
 </div>
 
 <script src="yes_script.js"></script>

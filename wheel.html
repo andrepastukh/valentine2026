@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dein Geschenk! 🎁</title>
+    <link rel="stylesheet" href="wheel.css">
+</head>
+<body>
+<div class="hearts-background"></div>
+
+<div class="container">
+    <h1 class="header_text">Dein Geschenk wartet!</h1>
+    <p class="subtitle">Drücke den Button... 💕</p>
+
+    <div class="wheel-wrapper">
+        <div class="wheel-container">
+            <canvas id="wheel" width="500" height="500"></canvas>
+            <button id="spin" class="spin-button">
+                <span class="spin-text">Dreh!</span>
+            </button>
+            <div class="wheel-pointer"></div>
+        </div>
+    </div>
+
+    <div id="result" class="result-modal">
+        <div class="result-content">
+            <div class="result-emoji"></div>
+            <h2 class="result-title">Du bekommst:</h2>
+            <p class="result-text"></p>
+            <button class="result-close" onclick="closeResult()">Perfekt! ❤️</button>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 18l-8-8 8-8 1.5 1.5L5 10l6.5 6.5z"/>
+        </svg>
+        Zurück
+    </a>
+
+    <audio id="backgroundMusic" loop>
+        <source src="song.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="wheel_script.js"></script>
+</body>
+</html>
+
+</div>
+
+<script src="wheel_script.js"></script>
+</body>
+</html>
